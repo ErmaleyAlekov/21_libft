@@ -12,90 +12,70 @@
 
 #include "libft.h"
 
-static char	**ft_malloc_error(char **tab)
+static int	ft_nomer_stroki(char const *stroka, char c)
 {
 	unsigned int	i;
+	unsigned int	nomer;
 
 	i = 0;
-	while (tab[i])
-	{
-		free(tab[i]);
+	nomer = 0;
+	while (stroka[i] && stroka[i] == c)
 		i++;
-	}
-	free(tab);
-	return (NULL);
-}
-
-static unsigned int	ft_get_nb_strs(char const *s, char c)
-{
-	unsigned int	i;
-	unsigned int	nb_strs;
-
-	if (!s[0])
-		return (0);
-	i = 0;
-	nb_strs = 0;
-	while (s[i] && s[i] == c)
-		i++;
-	while (s[i])
+	while (stroka[i])
 	{
-		if (s[i] == c)
+		if (stroka[i] == c)
 		{
-			nb_strs++;
-			while (s[i] && s[i] == c)
+			nomer++;
+			while (stroka[i] && stroka[i] == c)
 				i++;
 			continue ;
 		}
 		i++;
 	}
-	if (s[i - 1] != c)
-		nb_strs++;
-	return (nb_strs);
+	if (stroka[i - 1] != c)
+		nomer++;
+	return (nomer);
 }
 
-static void	ft_get_next_str(char **next_str, unsigned int *next_str_len,
+static void	ft_sled_stroka(char **sledstr, unsigned int *sleddlina,
 	char c)
 {
 	unsigned int	i;
 
-	*next_str += *next_str_len;
-	*next_str_len = 0;
+	*sledstr += *sleddlina;
+	*sleddlina = 0;
 	i = 0;
-	while (**next_str && **next_str == c)
-		(*next_str)++;
-	while ((*next_str)[i])
+	while (**sledstr && **sledstr == c)
+		(*sledstr)++;
+	while ((*sledstr)[i])
 	{
-		if ((*next_str)[i] == c)
+		if ((*sledstr)[i] == c)
 			return ;
-		(*next_str_len)++;
+		(*sleddlina)++;
 		i++;
 	}
 }
 
 char	**ft_split(char const *s, char c)
 {
+	unsigned int	nomer;
 	char			**tab;
-	char			*next_str;
-	unsigned int	next_str_len;
-	unsigned int	nb_strs;
+	unsigned int	sleddlina;
+	char			*sledstr;
 	unsigned int	i;
 
-	nb_strs = ft_get_nb_strs(s, c);
-	tab = malloc(sizeof(char *) * (nb_strs + 1));
-	if (!s || !tab)
-		return (NULL);
+	nomer = ft_nomer_stroki(s, c);
+	tab = malloc(sizeof(char *) * (nomer + 1));
 	i = 0;
-	next_str = (char *)s;
-	next_str_len = 0;
-	while (i < nb_strs)
+	sledstr = (char *)s;
+	sleddlina = 0;
+	while (i < nomer)
 	{
-		ft_get_next_str(&next_str, &next_str_len, c);
-		tab[i] = malloc(sizeof(char) * (next_str_len + 1));
-		if (!tab[i])
-			return (ft_malloc_error(tab));
-		ft_strlcpy(tab[i], next_str, next_str_len + 1);
+		ft_sled_stroka(&sledstr, &sleddlina, c);
+		tab[i] = malloc(sizeof(char) * (sleddlina + 1));
+		ft_strlcpy(tab[i], sledstr, sleddlina + 1);
 		i++;
 	}
-	tab[i] = NULL;
+	tab[i] = 0;
 	return (tab);
 }
