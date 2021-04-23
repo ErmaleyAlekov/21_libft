@@ -12,15 +12,20 @@
 
 #include "libft.h"
 
-void	ft_lstadd_back(t_list **alst, t_list *new)
+void	ft_lstadd_back(t_list **lst, t_list *new)
 {
 	t_list	*poslednyy;
 
-	if (!*alst)
+	if (!*lst)
 	{
-		*alst = new;
+		*lst = new;
 		return ;
 	}
-	poslednyy = ft_lstlast(*alst);
+	poslednyy = ft_lstlast(*lst);
 	poslednyy->next = new;
 }
+/*Dobavlyayet novyy element v konets spiska.
+new = Adres ukazatelya na element, kotoryy budet
+dobavlen v spisok.
+lst = Adres ukazatelya na pervuyu ssylku
+spiska.*/

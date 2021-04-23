@@ -20,10 +20,11 @@ void	*ft_calloc(size_t count, size_t size)
 
 	summa = count * size;
 	ale = malloc(summa);
+	i = 0;
 	if (!ale)
 		return (0);
-	i = 0;
 	while (summa--)
 		ale[i++] = 0;
 	return ((void *)ale);
 }
+/* function allocate memory*/

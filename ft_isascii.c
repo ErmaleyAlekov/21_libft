@@ -16,3 +16,4 @@ int	ft_isascii(int c)
 		return (1);
 	return (0);
 }
+/* function tests for any character is true. */

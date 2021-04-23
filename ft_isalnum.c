@@ -23,3 +23,5 @@ int	ft_isalnum(int c)
 		return (1);
 	return (0);
 }
+/* function tests for any character
+ for which isalpha or isdigit is true.*/

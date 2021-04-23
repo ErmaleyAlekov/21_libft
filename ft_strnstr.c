@@ -12,27 +12,28 @@
 
 #include <string.h>
 
-char	*ft_strnstr(char *haystack, char *needle, int len)
+char	*ft_strnstr(char *s1, char *s2, size_t len)
 {
-	int		i;
-	int		j;
+	size_t		i;
+	size_t		j;
 
-	if (needle[0] == '\0')
-		return ((char *)haystack);
+	if (s2[0] == '\0')
+		return ((char *)s1);
 	i = 0;
-	while (haystack[i] && i < len)
+	while (s1[i] && i < len)
 	{
 		j = 0;
-		if (haystack[i] == needle[j])
+		if (s1[i] == s2[j])
 		{
-			while (i + j < len && haystack[i + j] == needle[j])
+			while (i + j < len && s1[i + j] == s2[j])
 			{
 				j++;
-				if (!needle[j])
-					return ((char *)&haystack[i]);
+				if (!s2[j])
+					return ((char *)&s1[i]);
 			}
 		}
 		i++;
 	}
 	return (0);
 }
+/*nayti podstroku v stroke*/

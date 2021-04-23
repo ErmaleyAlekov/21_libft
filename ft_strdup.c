@@ -16,21 +16,23 @@
 
 char	*ft_strdup(char *src)
 {
-	char	*dest;
-	int		len;
+	char	*zna4enie;
+	int		dlina;
 
-	len = 0;
-	while (src[len])
-		len++;
-	dest = (char *)malloc(sizeof(char) * (len + 1));
-	if (dest == 0)
+	dlina = 0;
+	while (src[dlina])
+		dlina++;
+	zna4enie = (char *)malloc(sizeof(char) * (dlina + 1));
+	if (zna4enie == 0)
 		return (0);
-	dest[len + 1] = '\0';
-	while (len > 0)
+	zna4enie[dlina + 1] = '\0';
+	while (dlina > 0)
 	{
-		dest[len] = src[len];
-		len--;
+		zna4enie[dlina] = src[dlina];
+		dlina--;
 	}
-	dest[0] = src[0];
-	return (&dest[len]);
+	zna4enie[0] = src[0];
+	return (&zna4enie[dlina]);
 }
+/*Funktsiya strdup vydelyayet pamyati dlya kopii stroki,
+vypolnyayet kopiyu i vozvrashchayet ukazatel' na neye.*/

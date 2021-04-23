@@ -17,10 +17,8 @@ int	ft_strlen(char const *str)
 	int	i;
 
 	i = 0;
-	while (*str != '\0')
-	{
-		str++;
+	while (str[i])
 		i++;
-	}
 	return (i);
 }
+/*koli4estvo simvolov v stroke*/

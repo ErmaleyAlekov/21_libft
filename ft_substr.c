@@ -15,23 +15,31 @@
 char	*ft_substr(char const *s, unsigned int start, size_t len)
 {
 	size_t				i;
-	unsigned int		s_len;
-	char				*substr;
+	unsigned int		dlina;
+	char				*otvet;
 
-	substr = malloc(sizeof(char) * 1);
-	s_len = ft_strlen(s);
-	if (s_len < start)
+	if (!s)
+		return (0);
+	otvet = malloc(sizeof(char) * 1);
+	dlina = ft_strlen(s);
+	if (!otvet)
+		return (0);
+	if (dlina < start)
 	{
-		substr[0] = '\0';
-		return (substr);
+		otvet[0] = '\0';
+		return (otvet);
 	}
-	substr = malloc(sizeof(char) * (len + 1));
+	otvet = malloc(sizeof(char) * (len + 1));
 	i = 0;
 	while (i < len)
 	{
-		substr[i] = s[start + i];
+		otvet[i] = s[start + i];
 		i++;
 	}
-	substr[i] = '\0';
-	return (substr);
+	otvet[i] = '\0';
+	return (otvet);
 }
+/*Vydelyayet (s pomoshch'yu malloc) i vozvrashchayet podstroku
+iz stroki ’s’.
+Podstroka nachinayetsya s indeksa ’start’ i imeyet
+maksimal'nyy razmer ’len’.*/

@@ -12,29 +12,31 @@
 
 #include "libft.h"
 
-int	ft_strlcat(char *dest, char *src, int dstsize)
+int	ft_strlcat(char *dst, const char *src, size_t dstsize)
 {
-	int	src_size;
-	int	dest_size;
-	int	i;
+	int		srcrazm;
+	size_t	zna4raz;
+	int		i;
 
 	i = 0;
-	src_size = 0;
-	dest_size = 0;
-	while (src[src_size])
-		src_size++;
+	srcrazm = 0;
+	zna4raz = 0;
+	while (src[srcrazm])
+		srcrazm++;
 	if (dstsize == 0)
-		return (src_size);
-	while (dest_size < dstsize && dest[dest_size])
-		dest_size++;
-	if (dstsize <= dest_size)
-		return (dstsize + src_size);
+		return (srcrazm);
+	while (zna4raz < dstsize && dst[zna4raz])
+		zna4raz++;
+	if (dstsize <= zna4raz)
+		return (dstsize + srcrazm);
 	i = 0;
-	while (dstsize && (--dstsize - dest_size) && src[i])
+	while (dstsize && (--dstsize - zna4raz) && src[i])
 	{
-		dest[dest_size + i] = src[i];
+		dst[zna4raz + i] = src[i];
 		i++;
 	}
-	dest[dest_size + i] = '\0';
-	return (src_size + dest_size);
+	dst[zna4raz + i] = '\0';
+	return (srcrazm + zna4raz);
 }
+/*strlcat dobavlyayet stroku src v konets dst.
+On budet dobavlyat ne boleye dstsize - strlen (dst) - 1 simvolov.*/

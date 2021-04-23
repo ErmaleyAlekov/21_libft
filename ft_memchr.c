@@ -15,15 +15,17 @@
 void	*ft_memchr(void *s, int c, size_t n)
 {
 	char	*s2;
-	char	d;
+	char	ale;
 	size_t	i;
 
 	i = 0;
 	s2 = (char *)s;
-	d = (char)c;
-	while (i < n && s2[i] != d)
+	ale = (char)c;
+	while (i < n && s2[i] != ale)
 		i++;
-	if (i < n && s2[i] == d)
+	if (i < n && s2[i] == ale)
 		return (&s2[i]);
 	return (0);
 }
+/*Funktsiya memchr nakhodit pervoye vkhozhdeniye C
+(preobrazovannogo v simvol bez znaka) v stroke S.*/

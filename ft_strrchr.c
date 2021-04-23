@@ -23,3 +23,5 @@ char	*ft_strrchr(char *s, int c)
 		return ((char *)&s[len]);
 	return (0);
 }
+/*Funktsiya strrchr nakhodit posledneye simvol C
+(preobrazovannogo v char) v stroke, na kotoruyu ukazyvayet S.*/

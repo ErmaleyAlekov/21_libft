@@ -14,16 +14,18 @@
 
 void	*ft_memset(void *s, int c, size_t n)
 {
-	char	*src;
+	char	*source;
 	size_t	i;
 
 	i = 0;
 	if (n == 0)
 		return (s);
-	src = (char *)s;
+	source = (char *)s;
 	while (i < n)
 	{
-		src[i++] = c;
+		source[i++] = c;
 	}
-	return (src);
+	return (source);
 }
+/*Funktsiya memset zapisyvayet kol baytov znacheniya 
+C (preobrazovannykh v simvol bez znaka) v stroku S.*/

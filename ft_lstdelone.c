@@ -18,3 +18,6 @@ void	ft_lstdelone(t_list *lst, void (*del)(void *))
 		del(lst->content);
 	free(lst);
 }
+/*Prinimayet v kachestve parametra element i osvobozhdayet
+pamyat' soderzhimogo elementa s pomoshch'yu funktsii
+’Del’, zadannyy kak parametr, i osvobozhdayet element.*/

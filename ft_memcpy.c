@@ -14,10 +14,17 @@
 
 void	*ft_memcpy(void *dst, void *src, size_t n)
 {
-	void	*original_dst;
+	void	*naznacheniya;
 
-	original_dst = dst;
+	naznacheniya = dst;
+	if (!dst && !src)
+		return (0);
 	while (n--)
 		*((char *)dst++) = *((char *)src++);
-	return (original_dst);
+	return (naznacheniya);
 }
+/*Funktsiya memcpy kopiruyet N baytov iz oblasti pamyati SRC
+ v oblast' pamyati DST.
+Yesli DST i SRC perekryvayutsya, povedeniye ne opredeleno. 
+Prilozheniya v kotorom DST i SRC mogut perekryvat'sya,
+ sleduyet ispol'zovat' memmove.*/

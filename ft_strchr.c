@@ -20,3 +20,5 @@ char	*ft_strchr(char *s, int c)
 		return ((char *)s);
 	return (0);
 }
+/*Funktsiya strchr nakhodit pervoye simvol C
+(preobrazovannogo v char) v stroke, na kotoruyu ukazyvayet S.*/

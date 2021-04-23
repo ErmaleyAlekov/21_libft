@@ -12,25 +12,28 @@
 
 #include "libft.h"
 
-void	*ft_memmove(void *dest, void *src, size_t n)
+void	*ft_memmove(void *dst, void *src, size_t n)
 {
-	char	*dest2;
-	char	*src2;
+	char	*naznacheniya;
+	char	*na4alo;
 
-	dest2 = dest;
-	src2 = (char *)src;
-	if (src2 < dest2)
+	naznacheniya = dst;
+	na4alo = (char *)src;
+	if (na4alo < naznacheniya)
 	{
-		dest2 += n - 1;
-		src2 += n - 1;
+		naznacheniya += n - 1;
+		na4alo += n - 1;
 		while (n--)
 		{
-			*dest2 = *src2;
-			dest2--;
-			src2--;
+			*naznacheniya = *na4alo;
+			naznacheniya--;
+			na4alo--;
 		}
 	}
 	else
-		ft_memcpy(dest, src, n);
-	return (dest);
+		ft_memcpy(dst, src, n);
+	return (dst);
 }
+/*Funktsiya memmove kopiruyet kol baytov iz stroki SRC v stroku DST.
+Dve stroki mogut perekryvat'sya; kopiya vsegda delayetsya v ne-
+destruktivnym obrazom.*/

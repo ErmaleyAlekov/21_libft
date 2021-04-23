@@ -25,3 +25,6 @@ void	ft_lstclear(t_list **lst, void (*del)(void *))
 	}
 	*lst = 0;
 }
+/*Udalyayet i osvobozhdayet dannyy element i kazhdyy
+preyemnik etogo elementa, ispol'zuya funktsiyu ’del’
+i free.*/

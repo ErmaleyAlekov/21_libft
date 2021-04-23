@@ -14,18 +14,23 @@
 
 char	*ft_strmapi(char const *s, char (*f)(unsigned int, char))
 {
-	char			*str;
+	char			*stroka;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	i = 0;
-	str = malloc(sizeof(char) * (ft_strlen(s) + 1));
-	if (str == 0)
+	stroka = malloc(sizeof(char) * (ft_strlen(s) + 1));
+	if (stroka == 0)
 		return (0);
 	while (s[i])
 	{
-		str[i] = f(i, s[i]);
+		stroka[i] = f(i, s[i]);
 		i++;
 	}
-	str[i] = '\0';
-	return (str);
+	stroka[i] = '\0';
+	return (stroka);
 }
+/*Primenyayet funktsiyu ’f’ k kazhdomu simvolu
+stroki ’s’ dlya sozdaniya novoy stroki (s pomoshch'yu malloc)
+v rezul'tate posledovatel'nogo primeneniya 'f'.*/

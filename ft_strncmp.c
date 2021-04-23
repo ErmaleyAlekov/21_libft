@@ -23,3 +23,7 @@ int	ft_strncmp(char *s1, char *s2, unsigned int n)
 	}
 	return (0);
 }
+/*Funktsiya sravnivayet ne boleye n simvolov.
+Poskol'ku strncmp prednaznachen dlya sravneniya strok,
+a ne dvoichnykh dannykh,simvoly, kotoryye poyavlyayutsya
+posle simvola `\0', ne sravnivayutsya.*/

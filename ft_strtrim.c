@@ -12,7 +12,7 @@
 
 #include "libft.h"
 
-static unsigned int	is_in_set(char c, char const *set)
+static unsigned int	est1i(char c, char const *set)
 {
 	while (*set)
 	{
@@ -26,25 +26,30 @@ static unsigned int	is_in_set(char c, char const *set)
 char	*ft_strtrim(char const *s1, char const *set)
 {
 	int				i;
-	unsigned int	outstr_size;
-	char			*outstr_start;
-	char			*outstr_end;
-	char			*outstr;
+	unsigned int	razmer;
+	char			*na4alo;
+	char			*konec;
+	char			*rezult;
 
+	if (!s1)
+		return (0);
 	i = 0;
-	while (s1[i] && is_in_set(s1[i], set))
+	while (s1[i] && est1i(s1[i], set))
 		i++;
-	outstr_start = (char *)&s1[i];
+	na4alo = (char *)&s1[i];
 	i = (ft_strlen(s1) - 1);
 	if (i != -1)
-		while (i >= 0 && is_in_set(s1[i], set))
+		while (i >= 0 && est1i(s1[i], set))
 			i--;
-	outstr_end = (char *)&s1[i];
-	if (!*s1 || outstr_end == outstr_start)
-		outstr_size = 2;
+	konec = (char *)&s1[i];
+	if (!*s1 || konec == na4alo)
+		razmer = 2;
 	else
-		outstr_size = outstr_end - outstr_start + 2;
-	outstr = malloc(sizeof(char) * outstr_size);
-	ft_strlcpy(outstr, outstr_start, outstr_size);
-	return (outstr);
+		razmer = konec - na4alo + 2;
+	rezult = malloc(sizeof(char) * razmer);
+	ft_strlcpy(rezult, na4alo, razmer);
+	return (rezult);
 }
+/*Vydelyayet (s pomoshch'yu malloc) i vozvrashchayet kopiyu
+’S1’ s udalennymi simvolami, ukazannymi v ’set’
+ot nachala i do kontsa stroki.*/

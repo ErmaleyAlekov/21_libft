@@ -17,6 +17,8 @@ static int	ft_nomer_stroki(char const *stroka, char c)
 	unsigned int	i;
 	unsigned int	nomer;
 
+	if (!stroka[0])
+		return (0);
 	i = 0;
 	nomer = 0;
 	while (stroka[i] && stroka[i] == c)
@@ -64,11 +66,15 @@ char	**ft_split(char const *s, char c)
 	char			*sledstr;
 	unsigned int	i;
 
+	if (!s)
+		return (0);
 	nomer = ft_nomer_stroki(s, c);
 	tab = malloc(sizeof(char *) * (nomer + 1));
 	i = 0;
 	sledstr = (char *)s;
 	sleddlina = 0;
+	if (!tab)
+		return (0);
 	while (i < nomer)
 	{
 		ft_sled_stroka(&sledstr, &sleddlina, c);
@@ -79,3 +85,7 @@ char	**ft_split(char const *s, char c)
 	tab[i] = 0;
 	return (tab);
 }
+/*Vydelyayet (s pomoshch'yu malloc) i vozvrashchayet massiv
+strok, poluchennykh putem razdeleniya 's' s pomoshch'yu
+simvol ’c’ v kachestve razdelitelya. Massiv dolzhen byt'
+zakanchivayetsya ukazatelem 0.*/

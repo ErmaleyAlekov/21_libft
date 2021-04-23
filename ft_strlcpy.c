@@ -12,29 +12,28 @@
 
 #include "libft.h"
 
-unsigned int	ft_strlcpy(char *dest, char *src, unsigned int size)
+int	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {
-	unsigned int	count;
+	size_t	a;
 
-	if (size == 0)
-		return (ft_strlen(src));
-	count = 0;
-	while (size > 1 && *src)
+	if (!dst || !src)
+		return (0);
+	a = 0;
+	while (src[a])
+		a++;
+	if (dstsize == 0)
+		return (a);
+	a = 0;
+	while (src[a] && a < dstsize - 1)
 	{
-		*dest = *src;
-		++dest;
-		++src;
-		--size;
-		++count;
+		dst[a] = src[a];
+		a++;
 	}
-	*dest = '\0';
-	while (*dest || *src)
-	{
-		if (*src)
-		{
-			++src;
-			++count;
-		}
-	}
-	return (count);
+	dst[a] = 0;
+	a = 0;
+	while (src[a])
+		a++;
+	return (a);
 }
+/*kopiruyet do dstsize - 1 simvolov iz stroki src v dst,
+zavershaya rezul'tat 0, yesli dstsize ne = 0.*/

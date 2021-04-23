@@ -14,19 +14,24 @@
 
 void	*ft_memccpy(void *dest, void *src, int c, size_t n)
 {
-	char	*dest2;
-	char	*src2;
+	char	*zna4;
+	char	*str;
 	size_t	i;
 
 	i = 0;
-	dest2 = (char *)dest;
-	src2 = (char *)src;
+	zna4 = (char *)dest;
+	str = (char *)src;
 	while (i < n)
 	{
-		dest2[i] = src2[i];
-		if (dest2[i] == (char)c)
-			return ((void *)&dest2[i + 1]);
+		zna4[i] = str[i];
+		if (zna4[i] == (char)c)
+			return ((void *)&zna4[i + 1]);
 		i++;
 	}
 	return (0);
 }
+/* kopiruyet bayty iz stroki SRC v stroku DEST. Yesli simvol C vstrechayetsya v
+stroke SRC, kopirovaniye ostanavlivayetsya
+i ukazatel' na bayt posle kopii C v stroke DEST vozvrashchayetsya.
+v protivnom sluchaye kopiruyetsya N baytov,
+     i vozvrashchayetsya 0 ukazatel'*/

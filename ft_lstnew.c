@@ -17,7 +17,12 @@ t_list	*ft_lstnew(void *content)
 	t_list	*novyy;
 
 	novyy = malloc(sizeof(t_list));
+	if (!novyy)
+		return (0);
 	novyy->content = content;
 	novyy->next = 0;
 	return (novyy);
 }
+/*Vydelyayet (s pomoshch'yu malloc) i vozvrashchayet novyy
+element. Initsializiruyetsya znacheniye peremennoy ’content’
+so znacheniyem parametra ’content’.*/

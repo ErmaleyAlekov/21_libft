@@ -20,3 +20,5 @@ void	ft_lstiter(t_list *lst, void (*f)(void *))
 		lst = lst->next;
 	}
 }
+/*Iteriruyet spisok ’lst’ i primenyayet funktsiyu
+’F’ k soderzhaniyu kazhdogo elementa.*/

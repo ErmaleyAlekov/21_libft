@@ -16,3 +16,5 @@ void	ft_bzero(void *s, size_t n)
 {
 	ft_memset(s, 0, n);
 }
+/* Funktsiya bzero zapisyvayet N obnulennykh baytov v stroku S.
+Yesli N ravno nulyu, bzero nichego ne delayet. */

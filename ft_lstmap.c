@@ -14,22 +14,25 @@
 
 t_list	*ft_lstmap(t_list *lst, void *(*f)(void *), void (*del)(void *))
 {
-	t_list	*new_lst;
-	t_list	*new_elem;
+	t_list	*novlst;
+	t_list	*element;
 
-	if (!f || !del)
-		return (NULL);
-	new_lst = NULL;
+	novlst = 0;
 	while (lst)
 	{
-		new_elem = ft_lstnew(f(lst->content));
-		if (!new_elem)
+		element = ft_lstnew(f(lst->content));
+		if (!element)
 		{
-			ft_lstclear(&new_lst, del);
-			return (NULL);
+			ft_lstclear(&novlst, del);
+			return (0);
 		}
-		ft_lstadd_back(&new_lst, new_elem);
+		ft_lstadd_back(&novlst, element);
 		lst = lst->next;
 	}
-	return (new_lst);
+	return (novlst);
 }
+/*Iteriruyet spisok ’lst’ i primenyayet funktsiyu
+’F’ k soderzhaniyu kazhdogo elementa. Sozdayet novyy
+spisok, poluchennyy v rezul'tate posledovatel'nykh prilozheniy
+funktsiya ’f’. Funktsiya ’del’ ispol'zuyetsya dlya
+pri neobkhodimosti udalite soderzhimoye elementa.*/
