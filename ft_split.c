@@ -61,7 +61,7 @@ static void	ft_sled_stroka(char **sledstr, unsigned int *sleddlina,
 char	**ft_split(char const *s, char c)
 {
 	unsigned int	nomer;
-	char			**tab;
+	char			**otvet;
 	unsigned int	sleddlina;
 	char			*sledstr;
 	unsigned int	i;
@@ -69,21 +69,21 @@ char	**ft_split(char const *s, char c)
 	if (!s)
 		return (0);
 	nomer = ft_nomer_stroki(s, c);
-	tab = malloc(sizeof(char *) * (nomer + 1));
+	otvet = malloc(sizeof(char *) * (nomer + 1));
 	i = 0;
 	sledstr = (char *)s;
 	sleddlina = 0;
-	if (!tab)
+	if (!otvet)
 		return (0);
 	while (i < nomer)
 	{
 		ft_sled_stroka(&sledstr, &sleddlina, c);
-		tab[i] = malloc(sizeof(char) * (sleddlina + 1));
-		ft_strlcpy(tab[i], sledstr, sleddlina + 1);
+		otvet[i] = malloc(sizeof(char) * (sleddlina + 1));
+		ft_strlcpy(otvet[i], sledstr, sleddlina + 1);
 		i++;
 	}
-	tab[i] = 0;
-	return (tab);
+	otvet[i] = 0;
+	return (otvet);
 }
 /*Vydelyayet (s pomoshch'yu malloc) i vozvrashchayet massiv
 strok, poluchennykh putem razdeleniya 's' s pomoshch'yu
